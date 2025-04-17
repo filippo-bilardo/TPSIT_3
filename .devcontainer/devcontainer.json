@@ -1,6 +1,6 @@
 // .devcontainer/devcontainer.json
 {
-  "name": "Java Tomcat VNC Codespace",
+  "name": "Java Tomcat Codespace",
 
   // Usa un Dockerfile per personalizzare l'immagine
   "build": {
@@ -25,8 +25,7 @@
 
   // Porte da inoltrare automaticamente
   "forwardPorts": [
-    8080, // Porta HTTP standard di Tomcat
-    5901  // Porta standard per il display VNC :1
+    8080 // Porta HTTP standard di Tomcat
   ],
 
   // Porta su cui l'applicazione principale è in ascolto

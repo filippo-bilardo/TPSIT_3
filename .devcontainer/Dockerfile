@@ -42,14 +42,6 @@ RUN chown -R vscode:vscode ${TOMCAT_HOME} \
     # Rendi eseguibili gli script di Tomcat
     && chmod +x ${TOMCAT_HOME}/bin/*.sh
 
-# Crea la directory .vnc per l'utente vscode
-RUN mkdir -p /home/vscode/.vnc && chown vscode:vscode /home/vscode/.vnc
-
-# Copia lo script di avvio VNC personalizzato (lo creeremo nel prossimo passo)
-COPY xstartup /home/vscode/.vnc/xstartup
-RUN chown vscode:vscode /home/vscode/.vnc/xstartup \
-    && chmod 755 /home/vscode/.vnc/xstartup
-
 # (Opzionale) Installa webapps di esempio di Tomcat (manager, host-manager)
 # RUN cp -R ${TOMCAT_HOME}/webapps.dist/* ${TOMCAT_HOME}/webapps/
 # ATTENZIONE: Per usare le app manager/host-manager, devi configurare gli utenti in conf/tomcat-users.xml

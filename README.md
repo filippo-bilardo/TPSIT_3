@@ -16,7 +16,6 @@ Questo repository è configurato per l'utilizzo con GitHub Codespaces, offrendo 
 
 - **Java Development Kit (JDK)**: Versione 17 preinstallata
 - **Apache Tomcat**: Versione 10.1.40 preconfigurata
-- **Server VNC**: Accesso desktop remoto per applicazioni GUI
 - **Estensioni VS Code**: Set completo per sviluppo Java/JSP
 
 ### Come Avviare il Codespace
@@ -28,7 +27,6 @@ Questo repository è configurato per l'utilizzo con GitHub Codespaces, offrendo 
 ### Servizi Disponibili
 
 - **Apache Tomcat**: http://localhost:8080 (scheda "Porte")
-- **Server VNC**: Porta 5901 (scheda "Porte")
 
 ### Documentazione
 
