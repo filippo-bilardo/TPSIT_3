@@ -7,7 +7,7 @@
     "dockerfile": "Dockerfile"
     // Argomenti opzionali per il Dockerfile (es. versioni)
     // "args": {
-    //   "TOMCAT_VERSION": "10.1.24", // Specifica la versione desiderata
+    //   "TOMCAT_VERSION": "10.1.40", // Specifica la versione desiderata
     //   "JAVA_VERSION": "17"         // Assicurati sia compatibile con Tomcat
     // }
   },

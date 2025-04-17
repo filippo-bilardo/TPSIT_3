@@ -3,7 +3,7 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-22.04
 
 # Argomenti opzionali per rendere le versioni configurabili (possono essere passati da devcontainer.json)
-ARG TOMCAT_VERSION=10.1.24
+ARG TOMCAT_VERSION=10.1.40
 ARG TOMCAT_MAJOR_VERSION=10
 
 # Variabili d'ambiente
