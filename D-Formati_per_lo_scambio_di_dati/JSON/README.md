@@ -1,6 +1,14 @@
 # **Guida completa a JSON**
 
+## Introduzione
+JSON (JavaScript Object Notation) è un formato di scambio dati leggero, facile da leggere e scrivere per gli esseri umani e semplice da analizzare e generare per le macchine. È diventato uno standard fondamentale nello sviluppo web moderno e nelle API RESTful, sostituendo in molti casi XML grazie alla sua semplicità e versatilità.
+
 ## Esercitazioni
+- **Esercizio 1**: Creazione di un semplice oggetto JSON
+- **Esercizio 2**: Conversione da JSON a oggetto e viceversa
+- **Esercizio 3**: Validazione di documenti JSON
+- **Esercizio 4**: Utilizzo di JSON con API RESTful
+- **Esercizio 5**: Manipolazione di strutture JSON complesse
 
 ## Teoria
 ## **01. Introduzione a JSON**
@@ -12,7 +20,7 @@
 ## **02. Sintassi e regole di JSON**
 - [2.1 Tipi di dati in JSON](<02. Sintassi e regole di JSON\02.1 Tipi di dati in JSON.md>)
 - [2.2 Oggetti e array](<02. Sintassi e regole di JSON\02.2 Oggetti e array.md>)
-- [2.3 Escape dei caratteri speciali](<02. Sintassi e regole di JSON\02.3 Escape dei caratteri speciali.md>)                     "erasmoinrete"
+- [2.3 Escape dei caratteri speciali](<02. Sintassi e regole di JSON\02.3 Escape dei caratteri speciali.md>)
 - [2.4 Regole per la validità di un documento JSON](<02. Sintassi e regole di JSON\02.4 Regole per la validità di un documento JSON.md>)
 
 ## **03. Strumenti per lavorare con JSON**
