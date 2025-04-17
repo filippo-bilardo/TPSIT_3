@@ -1,7 +1,3 @@
-Ecco una versione riorganizzata e semplificata delle slide per renderle più leggibili e comprensibili:
-
----
-
 # Il Linguaggio XML
 
 ## Introduzione a XML

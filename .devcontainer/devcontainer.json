@@ -1,0 +1,48 @@
+{
+  "name": "Tomcat VNC Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "TOMCAT_VERSION": "9.0.73",
+      "JAVA_VERSION": "11"
+    }
+  },
+  "forwardPorts": [8080, 5901, 6080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Tomcat",
+      "onAutoForward": "notify"
+    },
+    "5901": {
+      "label": "VNC Server",
+      "onAutoForward": "silent"
+    },
+    "6080": {
+      "label": "noVNC Web Client",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "11",
+      "installMaven": true,
+      "mavenVersion": "3.8.6"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "redhat.vscode-xml",
+        "adashen.vscode-tomcat"
+      ],
+      "settings": {
+        "java.server.launchMode": "Standard",
+        "java.configuration.updateBuildConfiguration": "automatic"
+      }
+    }
+  },
+  "remoteUser": "vscode",
+  "postCreateCommand": "bash ./.devcontainer/setup.sh"
+}

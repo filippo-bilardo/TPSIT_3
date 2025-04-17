@@ -32,16 +32,16 @@
 
 ## 03. JSP (JavaServer Pages)
 7. **Introduzione a JSP**
-   - 7.1 Differenze tra Servlet e JSP
-   - 7.2 Architettura di JSP
+   - [7.1 Differenze tra Servlet e JSP](<03. JSP (JavaServer Pages)/07.1 Differenze tra Servlet e JSP.md>)
+   - [7.2 Architettura di JSP](<03. JSP (JavaServer Pages)/07.2 Architettura di JSP.md>)
 8. **Costruire pagine JSP**
-   - Sintassi di base
-   - Utilizzo delle direttive JSP
-   - Oggetti impliciti
+   - [8.1 Sintassi di base](<03. JSP (JavaServer Pages)/08.1 Sintassi di base.md>)
+   - [8.2 Utilizzo delle direttive JSP](<03. JSP (JavaServer Pages)/08.2 Utilizzo delle direttive JSP.md>)
+   - [8.3 Oggetti impliciti](<03. JSP (JavaServer Pages)/08.3 Oggetti impliciti.md>)
 9. **Lavorare con scriptlet, espressioni e tag**
-   - Scriptlet e codice Java nelle pagine JSP
-   - Espressioni e dichiarazioni JSP
-   - Tag standard e tag personalizzati
+   - [9.1 Scriptlet e codice Java nelle pagine JSP](<03. JSP (JavaServer Pages)/09.1 Scriptlet e codice Java nelle pagine JSP.md>)
+   - [9.2 Espressioni e dichiarazioni JSP](<03. JSP (JavaServer Pages)/09.2 Espressioni e dichiarazioni JSP.md>)
+   - [9.3 Tag standard e tag personalizzati](<03. JSP (JavaServer Pages)/09.3 Tag standard e tag personalizzati.md>)
 
 ## 04. Integrazione e funzionalità avanzate
 10. **Interazione con database**

@@ -13,7 +13,7 @@ class CiaoMondo2 {
         for(int i=world.length()-2; i>=0; i--) {
             System.out.print(world.charAt(i));
         }
-        System.out.print(" " + hello. + "\n"); 
+        System.out.print(" " + hello + "\n"); 
         System.out.println("---"); 
     }
 }
