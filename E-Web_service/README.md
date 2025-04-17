@@ -5,15 +5,15 @@
 # Sommario del libro "Web Services: Dai Fondamenti all'Implementazione"
 
 ## Parte I: Introduzione ai Web Services
-1. **Introduzione ai Web Services**
+1. **01. Introduzione ai Web Services**
    - [1.1 Cos'è un Web Service?](<01.1 Cos'è un Web Service.md>)
    - [1.2 Storia e sviluppo dei Web Services](<01.2 Stor    ia e sviluppo dei Web Services.md>)
-   - [1.3 Il futuro per i webservice](<1.3 Il futuro per i webservice.md>)
+   - [1.3 Il futuro per i webservice](<01.3 Il futuro per i webservice.md>)
    - [1.4 Differenze tra servizi RESTful, SOAP e GraphQL](<01.4 Differenze tra servizi RESTful, SOAP e GraphQL.md>)
    - [1.5 Standard e Protocolli Correlati](<01.5 Standard e Protocolli Correlati.md>)
    - [1.6 Utilizzo dei Web Services nel mondo reale](<01.6 Utilizzo dei Web Services nel mondo reale.md>)
 
-2. **Architettura dei Web Services**
+2. **02. Architettura dei Web Services**
    - [2.1 Architettura Client-Server](<02.1 Architettura Client-Server.md>)
    - [2.2 Architettura monolitica](<02.2 Architettura monolitica.md>)
    - [2.3 Microservizi](<02.3 Microservizi.md>)      
@@ -25,13 +25,13 @@
    - [2.8 Modelli di comunicazione: Sincrono e Asincrono](<02.8 Modelli di comunicazione_ Sincrono e Asincrono.md>)
    - [2.9 Architettura SOA (Service-Oriented Architecture)](<02.9 Architettura SOA.md>)
 
-3. **Tecnologie di Base**
+3. **03. Tecnologie di Base**
    - [3.1 HTTP e HTTPS](<03.1 HTTP e HTTPS.md>)
    - [3.2 XML e JSON come formati di scambio dati](<03.2 XML e JSON come formati di scambio dati.md>)
    - [3.3 WSDL e UDDI](<03.3 WSDL e UDDI.md>)
   
 ## Parte II: RESTful Web Services
-4. **Introduzione ai RESTful Web Services**
+4. **04. Introduzione ai RESTful Web Services**
    - [4.1 Principi REST](<04.1 Principi REST.md>)
    - [4.2 Metodi HTTP: GET, POST, PUT, DELETE](<04.2 Metodi HTTP.md>)
    - [4.3 Status code e gestione delle risposte](<04.3 Status code e gestione delle risposte.md>)
@@ -47,7 +47,7 @@
    - Middleware e routing
    - Connessione con un database (es. MongoDB)
 
-7. **RESTful Web Services con PHP**
+7. **07. RESTful Web Services con PHP**
    - [7.1 Costruzione di API REST con PHP](<07.1 Costruzione di API REST con PHP.md>)
    - [7.2 Validazione delle richieste](<07.2 Validazione delle richieste.md>)
    - [7.3 Utilizzo di cURL per fare richieste al webservice](<07.3 Utilizzo di cURL per fare richieste al webservice.md>)

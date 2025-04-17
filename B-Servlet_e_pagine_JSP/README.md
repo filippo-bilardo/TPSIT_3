@@ -4,33 +4,33 @@
 
 ---
 ### Teoria - Applicazioni web con le Servlet e JSP
-## Introduzione
+## 01. Introduzione
 1. **Panoramica delle tecnologie web**
-   - [1.1 Evoluzione delle applicazioni web](<01.1 Evoluzione delle applicazioni web.md>)
-   - [1.2 Architettura delle applicazioni web](<01.2 Architettura delle applicazioni web.md>)
+   - [1.1 Evoluzione delle applicazioni web](<01. Introduzione\01.1 Evoluzione delle applicazioni web.md>)
+   - [1.2 Architettura delle applicazioni web](<01. Introduzione\01.2 Architettura delle applicazioni web.md>)
 2. **Java per il web**
-   - [2.1 Il ruolo di Java nello sviluppo web](<02.1 Il ruolo di Java nello sviluppo web.md>)
-   - [2.2 Introduzione alle Servlet e JSP](<02.2 Introduzione alle Servlet e JSP.md>)
-   - [2.3 Diffusione e utilizzo di Servlet e JSP nell'ultimo decennio](<02.3 Diffusione e utilizzo di Servlet e JSP nell'ultimo decennio.md>)
+   - [2.1 Il ruolo di Java nello sviluppo web](<01. Introduzione\02.1 Il ruolo di Java nello sviluppo web.md>)
+   - [2.2 Introduzione alle Servlet e JSP](<01. Introduzione\02.2 Introduzione alle Servlet e JSP.md>)
+   - [2.3 Diffusione e utilizzo di Servlet e JSP nell'ultimo decennio](<01. Introduzione\02.3 Diffusione e utilizzo di Servlet e JSP nell'ultimo decennio.md>)
 
-## Fondamenti di Servlet
+## 02. Fondamenti di Servlet
 3. **Cos'è una Servlet?**
-   - [3.1 Struttura e ciclo di vita di una Servlet](<03.1 Struttura e ciclo di vita di una Servlet.md>)
-   - [3.2 Configurazione e deployment](<03.2 Configurazione e deployment.md>)
+   - [3.1 Struttura e ciclo di vita di una Servlet](<02. Fondamenti di Servlet\03.1 Struttura e ciclo di vita di una Servlet.md>)
+   - [3.2 Configurazione e deployment](<02. Fondamenti di Servlet\03.2 Configurazione e deployment.md>)
 4. **Creazione di una semplice Servlet**
-   - [4.1 Ambiente di sviluppo in Linux](<04.1 Ambiente di sviluppo in Linux.md>)
-   - [4.2 Ambiente di sviluppo su server remoto](<04.2 Ambiente di sviluppo su server remoto.md>)
-   - [4.3 Configurazione del server Apache Tomcat](<04.3 Configurazione del server Apache Tomcat.md>)
-   - [4.4 Esempio pratico di una Servlet](<04.4 Esempio pratico di una Servlet.md>)
+   - [4.1 Ambiente di sviluppo in Linux](<02. Fondamenti di Servlet\04.1 Ambiente di sviluppo in Linux.md>)
+   - [4.2 Ambiente di sviluppo su server remoto](<02. Fondamenti di Servlet\04.2 Ambiente di sviluppo su server remoto.md>)
+   - [4.3 Configurazione del server Apache Tomcat](<02. Fondamenti di Servlet\04.3 Configurazione del server Apache Tomcat.md>)
+   - [4.4 Esempio pratico di una Servlet](<02. Fondamenti di Servlet\04.4 Esempio pratico di una Servlet.md>)
 5. **Gestione delle richieste HTTP**
-   - Metodi GET e POST
-   - Gestione dei parametri delle richieste
-   - Risposte HTTP
+   - [5.1 Metodi GET e POST](<02. Fondamenti di Servlet\05.1 Metodi GET e POST.md>)
+   - [5.2 Gestione dei parametri delle richieste](<02. Fondamenti di Servlet\05.2 Gestione dei parametri delle richieste.md>)
+   - [5.3 Risposte HTTP](<02. Fondamenti di Servlet\05.3 Risposte HTTP.md>)
 6. **Sessioni e cookie**
-   - Gestione delle sessioni utente
-   - Utilizzo dei cookie per tracciare gli utenti
+   - [6.1 Gestione delle sessioni utente](<02. Fondamenti di Servlet\06.1 Gestione delle sessioni utente.md>)
+   - [6.2 Utilizzo dei cookie per tracciare gli utenti](<02. Fondamenti di Servlet\06.2 Utilizzo dei cookie per tracciare gli utenti.md>)
 
-## JSP: JavaServer Pages
+## 03. JSP (JavaServer Pages)
 7. **Introduzione a JSP**
    - 7.1 Differenze tra Servlet e JSP
    - 7.2 Architettura di JSP
@@ -43,7 +43,7 @@
    - Espressioni e dichiarazioni JSP
    - Tag standard e tag personalizzati
 
-## Integrazione e funzionalità avanzate
+## 04. Integrazione e funzionalità avanzate
 10. **Interazione con database**
     - Configurazione JDBC in ambiente Linux
     - Connessione a database MySQL/PostgreSQL
@@ -55,7 +55,7 @@
     - Validazione lato server con Servlet e JSP
     - Best practice per la sicurezza
 
-## Ottimizzazione e sicurezza
+## 05. Ottimizzazione e sicurezza
 13. **Gestione degli errori**
     - Pagine di errore personalizzate
     - Gestione delle eccezioni
@@ -63,7 +63,7 @@
     - Prevenzione di attacchi comuni (XSS, CSRF, SQL Injection)
     - Autenticazione e autorizzazione
 
-## Applicazioni pratiche e progetti
+## 06. Applicazioni pratiche e progetti
 15. **Progetto 1: Applicazione di gestione utenti**
     - Registrazione, login e profili utente
 16. **Progetto 2: E-commerce base**
@@ -79,22 +79,8 @@
     - Configurazione di Tomcat in produzione
     - Deployment su server cloud in ambiente Linux
 
-## Web Service
-20. **Introduzione ai Web Service**
-    - Cos'è un Web Service
-    - SOAP vs REST: concetti e differenze
-21. **Creazione di Web Service RESTful**
-    - Implementazione di un Web Service REST con Servlet
-    - Formattazione delle risposte in JSON e XML
-22. **Consumo di Web Service**
-    - Client HTTP in Java
-    - Integrazione con applicazioni JSP
-23. **Sicurezza nei Web Service**
-    - Autenticazione e autorizzazione nei Web Service
-    - Utilizzo di token (JWT) per la sicurezza
-
 ## Conclusione
-24. **Tendenze future nello sviluppo web con Java**
+20. **Tendenze future nello sviluppo web con Java**
     - Microservizi e Java
     - Il ruolo delle Servlet e JSP in architetture moderne
 
