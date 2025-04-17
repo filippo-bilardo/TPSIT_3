@@ -1,48 +1,53 @@
+// .devcontainer/devcontainer.json
 {
-  "name": "Tomcat VNC Development Environment",
+  "name": "Java Tomcat VNC Codespace",
+
+  // Usa un Dockerfile per personalizzare l'immagine
   "build": {
-    "dockerfile": "Dockerfile",
-    "args": {
-      "TOMCAT_VERSION": "9.0.73",
-      "JAVA_VERSION": "11"
-    }
+    "dockerfile": "Dockerfile"
+    // Argomenti opzionali per il Dockerfile (es. versioni)
+    // "args": {
+    //   "TOMCAT_VERSION": "10.1.24", // Specifica la versione desiderata
+    //   "JAVA_VERSION": "17"         // Assicurati sia compatibile con Tomcat
+    // }
   },
-  "forwardPorts": [8080, 5901, 6080],
-  "portsAttributes": {
-    "8080": {
-      "label": "Tomcat",
-      "onAutoForward": "notify"
-    },
-    "5901": {
-      "label": "VNC Server",
-      "onAutoForward": "silent"
-    },
-    "6080": {
-      "label": "noVNC Web Client",
-      "onAutoForward": "openBrowser"
-    }
-  },
+
+  // Funzionalità predefinite da includere (es. Java)
   "features": {
+    // Installa Java. Assicurati che la versione sia compatibile con la tua versione di Tomcat.
+    // Tomcat 10.1 richiede Java 11 o successivo.
     "ghcr.io/devcontainers/features/java:1": {
-      "version": "11",
-      "installMaven": true,
-      "mavenVersion": "3.8.6"
-    },
-    "ghcr.io/devcontainers/features/git:1": {}
+      "version": "17", // O la versione richiesta dal tuo Tomcat/progetto
+      "installMaven": "false",
+      "installGradle": "false"
+    }
   },
+
+  // Porte da inoltrare automaticamente
+  "forwardPorts": [
+    8080, // Porta HTTP standard di Tomcat
+    5901  // Porta standard per il display VNC :1
+  ],
+
+  // Porta su cui l'applicazione principale è in ascolto
+  "appPort": 8080,
+
+  // Esegui comandi dopo la creazione del container ma prima che VS Code si connetta
+  // "postCreateCommand": "echo 'Container creato!'",
+
+  // Esegui comandi dopo che il container è stato creato E ogni volta che viene avviato/riavviato
+  "postStartCommand": "bash .devcontainer/post-start.sh",
+
+  // Utente con cui eseguire i comandi e con cui VS Code si connetterà
+  "remoteUser": "vscode",
+
+  // Personalizzazioni specifiche per VS Code
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack",
-        "redhat.vscode-xml",
-        "adashen.vscode-tomcat"
-      ],
-      "settings": {
-        "java.server.launchMode": "Standard",
-        "java.configuration.updateBuildConfiguration": "automatic"
-      }
+        "vscjava.vscode-java-pack" // Utile per lo sviluppo Java
+        // Aggiungi altre estensioni utili qui
+      ]
     }
-  },
-  "remoteUser": "vscode",
-  "postCreateCommand": "bash ./.devcontainer/setup.sh"
+  }
 }
