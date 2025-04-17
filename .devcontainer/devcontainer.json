@@ -45,9 +45,34 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "vscjava.vscode-java-pack" // Utile per lo sviluppo Java
-        // Aggiungi altre estensioni utili qui
-      ]
+        // Estensioni Java
+        "vscjava.vscode-java-pack",           // Pacchetto Java essenziale
+        "redhat.vscode-community-server-connector", // Connettore per server Tomcat
+        "adashen.vscode-tomcat",             // Supporto Tomcat
+        
+        // Estensioni Web
+        "ritwickdey.liveserver",             // Server live per HTML/CSS
+        "xdebug.php-debug",                  // Debug PHP
+        "redhat.vscode-xml",                 // Supporto XML
+        "redhat.vscode-yaml",                // Supporto YAML
+        
+        // Estensioni per produttività
+        "streetsidesoftware.code-spell-checker", // Controllo ortografico
+        "ms-vsliveshare.vsliveshare",        // Collaborazione in tempo reale
+        "mhutchie.git-graph",                // Visualizzazione grafica Git
+        "eamodio.gitlens"                    // Funzionalità Git avanzate
+      ],
+      "settings": {
+        "java.server.launchMode": "Standard",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "workbench.colorTheme": "Default Dark+",
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
     }
   }
 }
