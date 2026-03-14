@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Studiare il modulo HTTP di Node.js",
+      "description": "Leggere la documentazione e testare esempi",
+      "completed": false,
+      "createdAt": "2026-03-14T22:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Confrontare ES01b con ES01c",
+      "description": "Capire differenze tra http e Express",
+      "completed": false,
+      "createdAt": "2026-03-14T22:00:00.000Z"
+    }
+  ],
+  "nextId": 3
+}

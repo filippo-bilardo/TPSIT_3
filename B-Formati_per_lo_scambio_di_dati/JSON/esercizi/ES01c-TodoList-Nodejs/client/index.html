@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List - Client/Server</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- ======================================== 
+             HEADER
+             ======================================== -->
+        <header>
+            <h1>📝 My Todo List</h1>
+            <p class="subtitle">Architettura Client-Server con Node.js</p>
+            
+            <!-- Indicatore Stato Connessione -->
+            <div id="connectionStatus" class="connection-status">
+                <span class="status-indicator"></span>
+                <span id="statusText">Connessione in corso...</span>
+            </div>
+        </header>
+
+        <!-- ======================================== 
+             FORM AGGIUNGI TASK
+             ======================================== -->
+        <section class="add-todo-section">
+            <h2>➕ Aggiungi Task</h2>
+            <div class="add-todo-form">
+                <input 
+                    type="text" 
+                    id="todoTitle" 
+                    class="todo-input"
+                    placeholder="Titolo task (obbligatorio)..." 
+                    maxlength="100"
+                    autocomplete="off"
+                />
+                <textarea 
+                    id="todoDescription" 
+                    class="todo-textarea"
+                    placeholder="Descrizione (opzionale)..." 
+                    rows="3"
+                    maxlength="500"
+                ></textarea>
+                <button id="addBtn" class="btn btn-primary">
+                    ➕ Aggiungi Task
+                </button>
+            </div>
+        </section>
+
+        <!-- ======================================== 
+             FILTRI
+             ======================================== -->
+        <section class="filters-section">
+            <h2>🔍 Filtri</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    📋 Tutte
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    ⏳ Attive
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    ✅ Completate
+                </button>
+            </div>
+        </section>
+
+        <!-- ======================================== 
+             LISTA TASK
+             ======================================== -->
+        <section class="todo-list-section">
+            <h2>📝 Le Mie Task</h2>
+            
+            <!-- Loading Indicator -->
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Caricamento dal server...</p>
+            </div>
+            
+            <!-- Container Task -->
+            <div id="todoList" class="todo-list">
+                <p class="empty-message">🎯 Connessione al server...</p>
+            </div>
+        </section>
+
+        <!-- ======================================== 
+             FOOTER CON STATISTICHE
+             ======================================== -->
+        <footer class="app-footer">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-label">Attive:</span>
+                    <span id="activeCount" class="stat-value">0</span>
+                </div>
+                <span class="stat-separator">|</span>
+                <div class="stat-item">
+                    <span class="stat-label">Completate:</span>
+                    <span id="completedCount" class="stat-value">0</span>
+                </div>
+                <span class="stat-separator">|</span>
+                <div class="stat-item">
+                    <span class="stat-label">Totali:</span>
+                    <span id="totalCount" class="stat-value">0</span>
+                </div>
+            </div>
+            
+            <div class="server-info">
+                <small>
+                    🌐 Server: <span id="serverUrl">http://localhost:3000</span> |
+                    🔄 <button id="refreshBtn" class="btn-link">Ricarica dal server</button>
+                </small>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>

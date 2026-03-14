@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 10 - Weather Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .search-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .api-warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .api-warning strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .weather-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .weather-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .weather-header h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .weather-header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .current-weather {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .weather-icon {
+            text-align: center;
+        }
+
+        .weather-icon img {
+            width: 150px;
+            height: 150px;
+        }
+
+        .weather-icon .description {
+            font-size: 1.2em;
+            color: #666;
+            text-transform: capitalize;
+        }
+
+        .temperature {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .temp-main {
+            font-size: 4em;
+            font-weight: bold;
+            color: #333;
+            line-height: 1;
+        }
+
+        .temp-feels {
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .detail-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .detail-item .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .detail-item .label {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .detail-item .value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .json-toggle {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .json-display {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .json-display pre {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌤️ Weather Dashboard</h1>
+
+        <div class="api-warning">
+            <strong>⚠️ Configurazione API Key richiesta</strong>
+            Per utilizzare questa demo, inserisci la tua API key gratuita di OpenWeatherMap nel codice JavaScript.
+            Registrati su <a href="https://openweathermap.org/api" target="_blank">OpenWeatherMap</a> per ottenerla.
+        </div>
+
+        <div class="search-box">
+            <div class="input-group">
+                <input type="text" id="cityInput" placeholder="Inserisci città (es: Milan, Rome, London...)" />
+                <button id="searchBtn" onclick="searchWeather()">🔍 Cerca</button>
+                <button onclick="getLocationWeather()">📍 La mia posizione</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Caricamento dati meteo...</p>
+        </div>
+
+        <div class="error" id="error"></div>
+
+        <div class="weather-card" id="weatherCard">
+            <div class="weather-header">
+                <h2 id="cityName"></h2>
+                <p id="currentDate"></p>
+            </div>
+
+            <div class="current-weather">
+                <div class="weather-icon">
+                    <img id="weatherIcon" src="" alt="Weather icon" />
+                    <div class="description" id="weatherDescription"></div>
+                </div>
+                <div class="temperature">
+                    <div class="temp-main" id="temperature"></div>
+                    <div class="temp-feels" id="feelsLike"></div>
+                </div>
+            </div>
+
+            <div class="weather-details" id="weatherDetails"></div>
+
+            <div class="json-toggle">
+                <button onclick="toggleJSON()">{ } Mostra/Nascondi JSON</button>
+                <div class="json-display" id="jsonDisplay">
+                    <pre id="jsonContent"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Esercizio 10 - Weather Dashboard
+         * 
+         * Obiettivi:
+         * - Recuperare dati meteo da API
+         * - Visualizzare previsioni meteo
+         * - Gestire geolocalizzazione
+         */
+
+        // CONFIGURAZIONE - Inserisci la tua API key qui
+        const API_KEY = 'YOUR_API_KEY_HERE'; // Ottieni da: https://openweathermap.org/api
+        const API_BASE_URL = 'https://api.openweathermap.org/data/2.5/weather';
+
+        const cityInput = document.getElementById('cityInput');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const weatherCard = document.getElementById('weatherCard');
+
+        // Listener per Enter key
+        cityInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchWeather();
+            }
+        });
+
+        /**
+         * Cerca meteo per città
+         */
+        async function searchWeather() {
+            const city = cityInput.value.trim();
+            
+            if (!city) {
+                showError('Inserisci il nome di una città');
+                return;
+            }
+
+            await getWeather(`q=${encodeURIComponent(city)}`);
+        }
+
+        /**
+         * Ottieni meteo per posizione corrente
+         */
+        function getLocationWeather() {
+            if (!navigator.geolocation) {
+                showError('Geolocalizzazione non supportata dal tuo browser');
+                return;
+            }
+
+            loading.style.display = 'block';
+            weatherCard.style.display = 'none';
+            error.style.display = 'none';
+
+            navigator.geolocation.getCurrentPosition(
+                async (position) => {
+                    const { latitude, longitude } = position.coords;
+                    await getWeather(`lat=${latitude}&lon=${longitude}`);
+                },
+                (err) => {
+                    loading.style.display = 'none';
+                    showError('Impossibile ottenere la posizione: ' + err.message);
+                }
+            );
+        }
+
+        /**
+         * Chiamata API meteo
+         */
+        async function getWeather(params) {
+            // Verifica API key
+            if (API_KEY === 'YOUR_API_KEY_HERE') {
+                showError('Configura la tua API key nel codice JavaScript!');
+                return;
+            }
+
+            loading.style.display = 'block';
+            weatherCard.style.display = 'none';
+            error.style.display = 'none';
+
+            try {
+                const url = `${API_BASE_URL}?${params}&appid=${API_KEY}&units=metric&lang=it`;
+                
+                const response = await fetch(url);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Errore nella richiesta');
+                }
+
+                const data = await response.json();
+                
+                console.log('Dati JSON meteo:', data);
+                
+                displayWeather(data);
+
+            } catch (err) {
+                console.error('Errore:', err);
+                showError('Errore: ' + err.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        /**
+         * Visualizza dati meteo
+         */
+        function displayWeather(data) {
+            // Header
+            document.getElementById('cityName').textContent = 
+                `${data.name}, ${data.sys.country}`;
+            document.getElementById('currentDate').textContent = 
+                new Date().toLocaleDateString('it-IT', { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+
+            // Icona e descrizione
+            const iconCode = data.weather[0].icon;
+            document.getElementById('weatherIcon').src = 
+                `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
+            document.getElementById('weatherDescription').textContent = 
+                data.weather[0].description;
+
+            // Temperatura
+            document.getElementById('temperature').textContent = 
+                `${Math.round(data.main.temp)}°C`;
+            document.getElementById('feelsLike').textContent = 
+                `Percepita: ${Math.round(data.main.feels_like)}°C`;
+
+            // Dettagli
+            const detailsContainer = document.getElementById('weatherDetails');
+            detailsContainer.innerHTML = '';
+
+            const details = [
+                {
+                    icon: '💧',
+                    label: 'Umidità',
+                    value: `${data.main.humidity}%`
+                },
+                {
+                    icon: '💨',
+                    label: 'Vento',
+                    value: `${data.wind.speed} m/s`
+                },
+                {
+                    icon: '🌡️',
+                    label: 'Pressione',
+                    value: `${data.main.pressure} hPa`
+                },
+                {
+                    icon: '👁️',
+                    label: 'Visibilità',
+                    value: `${(data.visibility / 1000).toFixed(1)} km`
+                },
+                {
+                    icon: '☁️',
+                    label: 'Nuvolosità',
+                    value: `${data.clouds.all}%`
+                },
+                {
+                    icon: '🌅',
+                    label: 'Alba',
+                    value: new Date(data.sys.sunrise * 1000).toLocaleTimeString('it-IT', { 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    })
+                },
+                {
+                    icon: '🌇',
+                    label: 'Tramonto',
+                    value: new Date(data.sys.sunset * 1000).toLocaleTimeString('it-IT', { 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    })
+                },
+                {
+                    icon: '🌡️',
+                    label: 'Min / Max',
+                    value: `${Math.round(data.main.temp_min)}° / ${Math.round(data.main.temp_max)}°`
+                }
+            ];
+
+            details.forEach(detail => {
+                const item = document.createElement('div');
+                item.className = 'detail-item';
+                item.innerHTML = `
+                    <div class="icon">${detail.icon}</div>
+                    <div class="label">${detail.label}</div>
+                    <div class="value">${detail.value}</div>
+                `;
+                detailsContainer.appendChild(item);
+            });
+
+            // Salva JSON per visualizzazione
+            document.getElementById('jsonContent').textContent = 
+                JSON.stringify(data, null, 2);
+
+            weatherCard.style.display = 'block';
+        }
+
+        /**
+         * Toggle visualizzazione JSON
+         */
+        function toggleJSON() {
+            const jsonDisplay = document.getElementById('jsonDisplay');
+            jsonDisplay.style.display = 
+                jsonDisplay.style.display === 'none' ? 'block' : 'none';
+        }
+
+        /**
+         * Mostra errore
+         */
+        function showError(message) {
+            error.textContent = message;
+            error.style.display = 'block';
+            loading.style.display = 'none';
+            weatherCard.style.display = 'none';
+        }
+
+        // Carica meteo per Milano all'avvio (esempio)
+        cityInput.value = 'Milan';
+    </script>
+
+    <!--
+    ESERCIZI AGGIUNTIVI:
+
+    1. Implementa previsioni a 5 giorni
+       API: api.openweathermap.org/data/2.5/forecast
+
+    2. Aggiungi grafici per visualizzare l'andamento
+       della temperatura nelle prossime ore
+
+    3. Implementa salvataggio delle città preferite
+       in localStorage
+
+    4. Aggiungi sistema di notifiche per avvisi meteo
+       (temperature estreme, pioggia, ecc.)
+
+    5. Implementa ricerca automatica mentre si digita
+       (con debouncing)
+
+    6. Aggiungi conversione unità di misura
+       (Celsius/Fahrenheit, m/s - km/h)
+
+    7. Implementa mappa con condizioni meteo
+       usando Leaflet.js e OpenWeatherMap Map Layer
+
+    Documentazione API:
+    https://openweathermap.org/api
+    -->
+</body>
+</html>

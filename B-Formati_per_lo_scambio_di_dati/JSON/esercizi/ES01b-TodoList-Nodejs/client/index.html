@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TodoList - ES01b (Node.js HTTP)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📝 Todo List</h1>
+      <p class="subtitle">ES01b - Server con Modulo HTTP Nativo</p>
+      <div id="connection-status" class="status disconnected">
+        ● Server disconnesso
+      </div>
+    </header>
+
+    <main>
+      <!-- Form Creazione Todo -->
+      <section class="todo-form">
+        <h2>Nuovo Todo</h2>
+        <form id="add-todo-form">
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="todo-title" 
+              placeholder="Titolo (obbligatorio)" 
+              required
+              maxlength="100"
+            >
+          </div>
+          <div class="form-group">
+            <textarea 
+              id="todo-description" 
+              placeholder="Descrizione (facoltativa)"
+              rows="3"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            ➕ Aggiungi Todo
+          </button>
+        </form>
+      </section>
+
+      <!-- Statistiche -->
+      <section class="stats" id="stats">
+        <div class="stat-item">
+          <span class="stat-label">Totale:</span>
+          <span class="stat-value" id="stat-total">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Attivi:</span>
+          <span class="stat-value" id="stat-active">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Completati:</span>
+          <span class="stat-value" id="stat-completed">0</span>
+        </div>
+      </section>
+
+      <!-- Lista Todo -->
+      <section class="todo-list">
+        <h2>I Miei Todo</h2>
+        <div id="todos-container" class="todos">
+          <!-- I todo saranno inseriti qui dinamicamente -->
+        </div>
+        <div id="empty-state" class="empty-state">
+          <p>🎉 Nessun todo! Aggiungine uno sopra.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>ES01b - TodoList con Node.js HTTP Module</p>
+      <p><small>Server: <code>http://localhost:3000</code></small></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
