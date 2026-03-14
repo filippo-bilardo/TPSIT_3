@@ -11,7 +11,7 @@ node server.js
 
 Dovresti vedere:
 ```
-Server HTTP in ascolto su http://localhost:3000
+Server HTTP in ascolto su https://w4s-3001.filippobilardo.it
 ```
 
 ### 2. Apri il Client
@@ -46,21 +46,21 @@ python3 -m http.server 8080
 
 ```bash
 # Ottieni tutti i todo
-curl http://localhost:3000/todos
+curl https://w4s-3001.filippobilardo.it/todos
 
 # Crea nuovo todo
-curl -X POST http://localhost:3000/todos \
+curl -X POST https://w4s-3001.filippobilardo.it/todos \
   -H "Content-Type: application/json" \
   -d '{"title":"Test da curl","description":"Funziona!"}'
 
 # Toggle completed (cambia ID con quello reale)
-curl -X PATCH http://localhost:3000/todos/1/toggle
+curl -X PATCH https://w4s-3001.filippobilardo.it/todos/1/toggle
 
 # Elimina todo (cambia ID)
-curl -X DELETE http://localhost:3000/todos/1
+curl -X DELETE https://w4s-3001.filippobilardo.it/todos/1
 
 # Statistiche
-curl http://localhost:3000/stats
+curl https://w4s-3001.filippobilardo.it/stats
 ```
 
 ---
@@ -85,7 +85,7 @@ taskkill /PID <PID> /F
 
 1. **Verifica che il server sia in esecuzione**
    ```bash
-   curl http://localhost:3000/stats
+   curl https://w4s-3001.filippobilardo.it/stats
    ```
 
 2. **Controlla la console del browser (F12)**
@@ -93,7 +93,7 @@ taskkill /PID <PID> /F
 
 3. **Verifica URL nel file `client/app.js`**
    ```javascript
-   const API_BASE_URL = 'http://localhost:3000';
+   const API_BASE_URL = 'https://w4s-3001.filippobilardo.it';
    ```
 
 ---

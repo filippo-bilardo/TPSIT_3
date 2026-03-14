@@ -66,7 +66,7 @@ node server.js
 
 Output:
 ```
-Server HTTP in ascolto su http://localhost:3000
+Server HTTP in ascolto su https://w4s-3001.filippobilardo.it/
 ```
 
 ### 2. Apri il Client
@@ -238,21 +238,21 @@ if (method === 'PATCH' && match) {
 
 ```bash
 # GET tutti i todo
-curl http://localhost:3000/todos
+curl https://w4s-3001.filippobilardo.it/todos
 
 # POST crea todo
-curl -X POST http://localhost:3000/todos \
+curl -X POST https://w4s-3001.filippobilardo.it/todos \
   -H "Content-Type: application/json" \
   -d '{"title": "Test", "description": "Descrizione test"}'
 
 # PATCH toggle completed (cambia ID)
-curl -X PATCH http://localhost:3000/todos/1/toggle
+curl -X PATCH https://w4s-3001.filippobilardo.it/todos/1/toggle
 
 # DELETE todo (cambia ID)
-curl -X DELETE http://localhost:3000/todos/1
+curl -X DELETE https://w4s-3001.filippobilardo.it/todos/1
 
 # GET statistiche
-curl http://localhost:3000/stats
+curl https://w4s-3001.filippobilardo.it/stats
 ```
 
 ### Debug
@@ -285,7 +285,7 @@ console.log('Body:', body);
 **Soluzione:** 
 1. Verifica che il server sia avviato (`node server.js`)
 2. Controlla la porta (default: 3000)
-3. Testa con curl: `curl http://localhost:3000/todos`
+3. Testa con curl: `curl https://w4s-3001.filippobilardo.it/todos`
 
 ### SyntaxError: Unexpected token
 

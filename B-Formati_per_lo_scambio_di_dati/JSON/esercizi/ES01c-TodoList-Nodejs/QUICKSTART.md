@@ -19,7 +19,7 @@ Output atteso:
 ║   🚀 TODO LIST API SERVER AVVIATO             ║
 ╚════════════════════════════════════════════════╝
 
-📡 Server in ascolto su http://localhost:3000
+📡 Server in ascolto su https://w4s-3001.filippobilardo.it
 ```
 
 ## 3. Avvio Client
@@ -83,21 +83,21 @@ const API_BASE_URL = 'http://localhost:3001/api';
 
 ```bash
 # Lista task
-curl http://localhost:3000/api/todos
+curl https://w4s-3001.filippobilardo.it/api/todos
 
 # Crea task
-curl -X POST http://localhost:3000/api/todos \
+curl -X POST https://w4s-3001.filippobilardo.it/api/todos \
   -H "Content-Type: application/json" \
   -d '{"title":"Test","description":"Prova"}'
 
 # Toggle task (id=1)
-curl -X PATCH http://localhost:3000/api/todos/1/toggle
+curl -X PATCH https://w4s-3001.filippobilardo.it/api/todos/1/toggle
 
 # Elimina task (id=1)
-curl -X DELETE http://localhost:3000/api/todos/1
+curl -X DELETE https://w4s-3001.filippobilardo.it/api/todos/1
 
 # Statistiche
-curl http://localhost:3000/api/stats
+curl https://w4s-3001.filippobilardo.it/api/stats
 ```
 
 ## 🎓 Prossimi Passi

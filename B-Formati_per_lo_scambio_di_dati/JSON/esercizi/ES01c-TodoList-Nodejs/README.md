@@ -202,14 +202,14 @@ Elimina task
 ```javascript
 // GET - Carica task
 async function loadTodos() {
-    const response = await fetch('http://localhost:3000/api/todos');
+    const response = await fetch('https://w4s-3001.filippobilardo.it/api/todos');
     const result = await response.json();
     return result.data;
 }
 
 // POST - Crea task
 async function createTodo(title, description) {
-    const response = await fetch('http://localhost:3000/api/todos', {
+    const response = await fetch('https://w4s-3001.filippobilardo.it/api/todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, description })
@@ -219,7 +219,7 @@ async function createTodo(title, description) {
 
 // DELETE - Elimina task
 async function deleteTodo(id) {
-    const response = await fetch(`http://localhost:3000/api/todos/${id}`, {
+    const response = await fetch(`https://w4s-3001.filippobilardo.it/api/todos/${id}`, {
         method: 'DELETE'
     });
     return await response.json();
