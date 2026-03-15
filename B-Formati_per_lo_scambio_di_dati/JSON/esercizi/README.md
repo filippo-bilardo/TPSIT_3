@@ -7,6 +7,41 @@ Questa cartella contiene esercizi pratici per consolidare le conoscenze su JSON.
 - **node/** - Esercizi da eseguire con Node.js
 - **browser/** - Esercizi da eseguire nel browser
 
+
+---
+
+## 📋 Esercitazioni Guidate
+
+### ES01 - TodoList Application
+
+Tre versioni progressive per imparare lo sviluppo web con JSON:
+
+| Versione | Descrizione | Tecnologie |
+|----------|-------------|------------|
+| **ES01a-TodoList** | Client-side con localStorage | HTML, CSS, JS, localStorage |
+| **ES01b-TodoList-Nodejs** | Server HTTP nativo | Node.js HTTP module, JSON storage |
+| **ES01c-TodoList-Nodejs** | Server con Express | Express.js, CORS, REST API |
+
+[📖 Vedi dettagli ES01](./ES01a-TodoList/README.md)
+
+### ES02 - User Authentication System
+
+Tre livelli di sicurezza per l'autenticazione utenti:
+
+| Versione | Descrizione | Sicurezza | Use Case |
+|----------|-------------|-----------|----------|
+| **ES02a-UserLogin** | Password in chiaro | ⚠️ Solo educativo | Apprendimento base |
+| **ES02b-UserLogin** | Bcrypt + Sessioni | ✅ Intermedia | Web app tradizionali |
+| **ES02c-UserLogin** | JWT + RBAC | ✅✅ Avanzata | API moderne, SPA, mobile |
+
+**Features ES02c:**
+- JWT (JSON Web Tokens)
+- Access + Refresh tokens
+- Role-Based Access Control
+- Auto-refresh tokens
+- Admin panel
+
+[📖 Vedi dettagli ES02a](./ES02a-UserLogin/README.md) | [ES02b](./ES02b-UserLogin/README.md) | [ES02c](./ES02c-UserLogin/README.md)
 ---
 
 ## Esercizi Node.js

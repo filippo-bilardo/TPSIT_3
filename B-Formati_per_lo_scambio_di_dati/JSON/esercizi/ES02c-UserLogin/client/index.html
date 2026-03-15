@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES02c - JWT Authentication</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔐 Sistema Autenticazione JWT</h1>
+      <p class="subtitle">Esercitazione ES02c - JWT + RBAC</p>
+      <div class="success-badge">
+        <strong>✅ PRODUZIONE-READY</strong> JWT, Refresh Tokens, Role-Based Access
+      </div>
+      <div id="connection-status" class="status"></div>
+    </header>
+
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="screen active">
+      <div class="card">
+        <div class="tabs">
+          <button id="tab-login" class="tab active">Login</button>
+          <button id="tab-register" class="tab">Registrazione</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form active">
+          <h2>Accedi</h2>
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" placeholder="mario_rossi" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" placeholder="••••••" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Accedi</button>
+          <div id="login-message" class="message"></div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form">
+          <h2>Registrati</h2>
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input type="text" id="register-username" placeholder="mario_rossi" required>
+            <small>3-20 caratteri, solo lettere, numeri e underscore</small>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" placeholder="••••••" required>
+            <small>Minimo 8 caratteri, maiuscole, minuscole e numeri</small>
+          </div>
+          <div class="form-group">
+            <label for="register-confirm">Conferma Password</label>
+            <input type="password" id="register-confirm" placeholder="••••••" required>
+          </div>
+          <div class="form-group">
+            <label for="register-role">Ruolo</label>
+            <select id="register-role">
+              <option value="user">Utente</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrati</button>
+          <div id="register-message" class="message"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard-screen" class="screen">
+      <div class="card">
+        <div class="user-info">
+          <h2>Benvenuto, <span id="user-name"></span>!</h2>
+          <p><strong>Ruolo:</strong> <span id="user-role" class="badge"></span></p>
+          <p>ID: <span id="user-id"></span></p>
+          <p>Registrato il: <span id="user-created"></span></p>
+          <p class="token-info">
+            <small>🔑 Access Token valido per 15 minuti</small>
+          </p>
+        </div>
+        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+
+      <div class="card">
+        <h3>📋 Tutti gli Utenti</h3>
+        <button id="refresh-users-btn" class="btn btn-secondary">🔄 Aggiorna</button>
+        <div id="users-list" class="users-list"></div>
+      </div>
+
+      <!-- Admin Panel -->
+      <div id="admin-panel" class="card admin-only" style="display: none;">
+        <h3>👑 Pannello Admin</h3>
+        <button id="load-stats-btn" class="btn btn-primary">📊 Carica Statistiche</button>
+        <div id="admin-stats" class="admin-stats"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>ES02c - Autenticazione JWT con Role-Based Access Control</p>
+    <p><strong>Produzione-Ready</strong> - JWT, Bcrypt, RBAC</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

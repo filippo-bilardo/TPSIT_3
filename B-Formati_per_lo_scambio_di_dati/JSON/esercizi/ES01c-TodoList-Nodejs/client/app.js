@@ -7,8 +7,8 @@
 // CONFIGURAZIONE
 // ══════════════════════════════════════════
 
-const API_BASE_URL = 'http://localhost:3000/api';
-const SERVER_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://w4s-3001.filippobilardo.it/api';
+const SERVER_URL = 'https://w4s-3001.filippobilardo.it';
 
 // ══════════════════════════════════════════
 // STATO APPLICAZIONE

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES02a - User Login System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🔐 Sistema Utenti</h1>
+      <p class="subtitle">Esercitazione ES02b - Autenticazione Intermedia</p>
+      <div class="warning">
+        <strong>⚠️ SOLO EDUCATIVO!</strong> Password memorizzate in chiaro
+      </div>
+      <div id="connection-status" class="status"></div>
+    </header>
+
+    <!-- Schermata di Login/Registrazione -->
+    <div id="auth-screen" class="screen active">
+      <div class="card">
+        <div class="tabs">
+          <button id="tab-login" class="tab active">Login</button>
+          <button id="tab-register" class="tab">Registrazione</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form active">
+          <h2>Accedi</h2>
+          <div class="form-group">
+            <label for="login-username">Username</label>
+            <input 
+              type="text" 
+              id="login-username" 
+              placeholder="mario_rossi"
+              autocomplete="username"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input 
+              type="password" 
+              id="login-password" 
+              placeholder="••••••"
+              autocomplete="current-password"
+              required>
+          </div>
+          <button type="submit" class="btn btn-primary">Accedi</button>
+          <div id="login-message" class="message"></div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form">
+          <h2>Registrati</h2>
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input 
+              type="text" 
+              id="register-username" 
+              placeholder="mario_rossi"
+              autocomplete="username"
+              required>
+            <small>3-20 caratteri, solo lettere, numeri e underscore</small>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Password</label>
+            <input 
+              type="password" 
+              id="register-password" 
+              placeholder="••••••"
+              autocomplete="new-password"
+              required>
+            <small>Minimo 6 caratteri</small>
+          </div>
+          <div class="form-group">
+            <label for="register-confirm">Conferma Password</label>
+            <input 
+              type="password" 
+              id="register-confirm" 
+              placeholder="••••••"
+              autocomplete="new-password"
+              required>
+          </div>
+          <button type="submit" class="btn btn-primary">Registrati</button>
+          <div id="register-message" class="message"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Schermata Dashboard -->
+    <div id="dashboard-screen" class="screen">
+      <div class="card">
+        <div class="user-info">
+          <h2>Benvenuto, <span id="user-name"></span>!</h2>
+          <p>ID: <span id="user-id"></span></p>
+          <p>Registrato il: <span id="user-created"></span></p>
+        </div>
+        <button id="logout-btn" class="btn btn-secondary">Logout</button>
+      </div>
+
+      <div class="card">
+        <h3>📋 Tutti gli Utenti</h3>
+        <button id="refresh-users-btn" class="btn btn-secondary">🔄 Aggiorna</button>
+        <div id="users-list" class="users-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>ES02b - Autenticazione Intermedia con Express.js e JSON</p>
+    <p><strong>SOLO EDUCATIVO</strong> - Non usare in produzione!</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

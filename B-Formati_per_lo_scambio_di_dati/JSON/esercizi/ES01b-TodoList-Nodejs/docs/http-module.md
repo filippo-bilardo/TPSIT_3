@@ -66,14 +66,14 @@ const server = http.createServer((req, res) => {
 
 // Avvia server sulla porta 3000
 server.listen(3000, () => {
-  console.log('Server in ascolto su http://localhost:3000');
+  console.log('Server in ascolto su https://w4s-3001.filippobilardo.it');
 });
 ```
 
 **Test:**
 ```bash
 node server.js
-curl http://localhost:3000
+curl https://w4s-3001.filippobilardo.it
 # Output: Hello World!
 ```
 
@@ -630,7 +630,7 @@ http.createServer((req, res) => {
 
 ```javascript
 const ALLOWED_ORIGINS = [
-  'http://localhost:3000',
+  'https://w4s-3001.filippobilardo.it',
   'http://localhost:8080',
   'https://miodominio.com'
 ];

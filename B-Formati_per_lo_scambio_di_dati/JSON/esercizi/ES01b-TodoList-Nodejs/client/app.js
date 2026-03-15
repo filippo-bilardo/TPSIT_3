@@ -1,5 +1,5 @@
 // Configurazione
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://w4s-3001.filippobilardo.it';
 
 // Stato
 let todos = [];

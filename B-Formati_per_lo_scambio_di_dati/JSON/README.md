@@ -1,4 +1,5 @@
 # Formati per lo scambio di dati - JSON
+Resume this session with copilot --resume=a3a49bf8-de0d-44a5-966a-a7d18b2dead0 
 
 ## Indice del corso
 
