@@ -325,26 +325,26 @@ Questo è lo step più importante! Dovrai creare da zero il file JavaScript segu
 Prima di iniziare a scrivere codice, comprendi il flusso completo:
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                   AVVIO APPLICAZIONE                    │
-│                                                         │
+┌────────────────────────────────────────────────────────┐
+│                   AVVIO APPLICAZIONE                   │
+│                                                        │
 │  1. Browser carica index.html                          │
 │  2. Browser carica style.css                           │
 │  3. Browser carica app.js                              │
 │  4. DOMContentLoaded event → chiama init()             │
-└───────────────────┬─────────────────────────────────────┘
+└───────────────────┬────────────────────────────────────┘
                     ▼
-┌─────────────────────────────────────────────────────────┐
-│                    INIZIALIZZAZIONE                     │
-│                     init()                              │
+┌────────────────────────────────────────────────────────┐
+│                    INIZIALIZZAZIONE                    │
+│                     init()                             │
 │  1. loadTodos() → Carica dati da localStorage          │
 │  2. setupEventListeners() → Attiva pulsanti/form       │
 │  3. renderTodos() → Visualizza task                    │
-└───────────────────┬─────────────────────────────────────┘
+└───────────────────┬────────────────────────────────────┘
                     ▼
-┌─────────────────────────────────────────────────────────┐
-│                  UTENTE INTERAGISCE                     │
-│                                                         │
+┌────────────────────────────────────────────────────────┐
+│                  UTENTE INTERAGISCE                    │
+│                                                        │
 │  ┌─────────────────┬──────────────────┬──────────────┐ │
 │  │ Aggiungi Task   │  Cambia Filtro   │  Toggle/Del  │ │
 │  │  handleAddTodo()│handleFilterChange│ checkbox/btn │ │
